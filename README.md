@@ -7,7 +7,7 @@ terraform init
 terraform apply -auto-approve
 ```
 
-Once the IoT Hub is provisioned, create a device:
+Once the IoT Hub is provisioned, create a device with module identity:
 
 ```
 bash ./scripts/iotdevice.sh
