@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.1",
+  "aduShellTrustedUsers": [
+    "adu",
+    "do"
+  ],
+  "iotHubProtocol": "mqtt",
+  "manufacturer": "Contoso",
+  "model": "Video",
+  "agents": [
+    {
+      "name": "aduagent",
+      "runas": "adu",
+      "connectionSource": {
+        "connectionType": "string",
+        "connectionData": "<IOT_DEVICE_CONNECTION_STRING>"
+      },
+      "manufacturer": "Contoso",
+      "model": "Video"
+    }
+  ]
+}
