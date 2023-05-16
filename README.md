@@ -9,18 +9,8 @@ terraform apply -auto-approve
 
 Once the IoT Hub is provisioned, create a device:
 
-```sh
-# Create the device identity
-az iot hub device-identity create -n iottechiot -d Simulator
-
-# Create the module identity
-az iot hub module-identity create --device-id Simulator --module-id DUAgent --hub-name iottechiot
 ```
-
-Add this tag to the module-twin:
-
-```sh
-az iot hub module-twin update -n iottechiot -d Simulator -m DUAgent --tags '{"ADUGroup": "DU-simulator-tutorial"}'
+bash ./scripts/iotdevice.sh
 ```
 
 How verify that the `cloud-init` config is done.
