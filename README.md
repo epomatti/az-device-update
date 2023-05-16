@@ -42,17 +42,31 @@ az vm restart -g rgtechiot -n vmtechiotsimulator
 
 Connect again to the VM after restarting it.
 
-Upload the template config:
+Upload the pre-filled template config:
 
 ```sh
-scp ./config/du-config-template.json "simulator@<PUBLIC-IP>"
+scp ./config/du-config-template.json simulator@<PUBLIC-IP>:
 ```
 
-```sh
-sudo nano /etc/adu/du-config.json
+Edit the connection string:
 
-# Add the 
+```sh
+sudo nano du-config-template.json
+
+# Update the connection string
 az iot hub module-identity connection-string show --device-id Simulator --module-id DUAgent --hub-name iottechiot
+```
+
+Update the `du-config.json` file:
+
+```sh
+sudo cp du-config-template.json /etc/adu/du-config.json
+```
+
+Set up the agent to run as a simulator:
+
+```sh
+sudo /usr/bin/AducIotAgent --extension-type updateContentHandler --extension-id 'microsoft/swupdate:1' --register-extension /var/lib/adu/extensions/sources/libmicrosoft_simulator_1.so
 ```
 
 ## Sources
